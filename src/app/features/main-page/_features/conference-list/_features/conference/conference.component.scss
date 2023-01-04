@@ -1,0 +1,19 @@
+.conference{
+    width: 200px;
+    height: 200px;
+    background: white;
+    position: relative;
+    border-radius: 5px;
+
+    img{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-height: 80%;
+        max-width: 80%;
+        cursor: pointer;
+    }
+}

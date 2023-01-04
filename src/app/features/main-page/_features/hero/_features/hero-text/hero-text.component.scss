@@ -29,22 +29,11 @@
       &.upper__text{
         margin-top: 30px;
         font-size: 1.5rem;
-        animation: right_to_left 1s ease;
       }
 
       &.bottom__text{
         margin-top: 5px;
         font-size: 3.2rem;
-        animation: right_to_left 2s ease;
       }
-    }
-  }
-
-  @keyframes right_to_left {
-    from {
-      transform: translate(100%);
-    }
-    to {
-      transform:translate(0);
     }
   }

@@ -1,0 +1,8 @@
+<section class="wrapper__conferences">
+    <h1>Select a conference:</h1>
+    <div class="conferences__list">
+        <ng-container *ngFor="let league of conferences">
+            <app-conference [conference]="league" (selectedConference)="saveSelectedConference($event)"></app-conference>
+        </ng-container>
+    </div>
+</section>

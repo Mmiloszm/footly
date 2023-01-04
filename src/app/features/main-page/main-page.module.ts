@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainPageComponent } from './main-page.component';
 import { NavbarModule } from 'src/app/shared/features/navbar/navbar.module';
 import { HeroModule } from './_features/hero/hero.module';
+import { ConferenceListModule } from './_features/conference-list/conference-list.module';
 
 
 
@@ -12,7 +13,8 @@ import { HeroModule } from './_features/hero/hero.module';
   imports: [
     CommonModule,
     NavbarModule,
-    HeroModule
+    HeroModule,
+    ConferenceListModule
   ]
 })
 export class MainPageModule { }
