@@ -1,0 +1,11 @@
+<section class="gamelist__wrapper" *ngIf="games.length > 0; else emptyList">
+    <h1>Last results of {{teamName}}</h1>
+    <div class="gamelist__container">
+        <div class="game__wrapper" *ngFor="let game of games">
+            <app-game [game]="game"></app-game>
+        </div>
+    </div>
+</section>
+<ng-template #emptyList>
+    <h1 class="empty__list">Select a team to show it's results</h1>
+</ng-template>

@@ -1,0 +1,36 @@
+@import '../../../../../styles/index.scss';
+
+.gamelist__wrapper{
+    width: 50%;
+    margin: 80px auto;
+    text-align: center;
+    background-color: $main-blue;
+    border-radius: 5px;
+
+    h1 {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0px;
+        padding: 5px;
+    }
+    .gamelist__container{
+        width: 90%;
+        margin: auto;
+        padding-bottom: 25px;
+        border-radius: 5px;
+
+        .game__wrapper:nth-child(odd){
+            background-color: $light-blue;
+        }
+        .game__wrapper:nth-child(even){
+            background-color: $soft-blue;
+        }
+    }
+
+}
+.empty__list{
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 70px;
+    color: $gray;
+}

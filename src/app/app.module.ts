@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { ShareSelectedTeamService } from './core/services/games/share-selected-team.service';
 import { MainPageModule } from './features/main-page/main-page.module';
 
 @NgModule({
@@ -14,7 +15,7 @@ import { MainPageModule } from './features/main-page/main-page.module';
     BrowserModule,
     MainPageModule
   ],
-  providers: [],
+  providers: [ShareSelectedTeamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

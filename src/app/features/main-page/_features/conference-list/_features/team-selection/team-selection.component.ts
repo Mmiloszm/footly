@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { firstValueFrom, Subscription } from 'rxjs';
 import { Team } from 'src/app/core/models/team.model';
 import { TeamsScoresStatsService } from '../../../../../../core/services/api/teams-scores-stats.service'
 
@@ -8,12 +8,12 @@ import { TeamsScoresStatsService } from '../../../../../../core/services/api/tea
   templateUrl: './team-selection.component.html',
   styleUrls: ['./team-selection.component.scss']
 })
-export class TeamSelectionComponent implements OnInit{
+export class TeamSelectionComponent implements OnInit, OnDestroy{
 
   @Input() conferenceName: string = '';
 
-  private teamsInfo: Array<any> = [];
-  public mappedTeams: Array<Team> = [];
+  public teams: Array<Team> = [];
+  sub: Subscription | undefined;
 
   constructor(private teamScoresStatsService: TeamsScoresStatsService) {
    }
@@ -22,21 +22,26 @@ export class TeamSelectionComponent implements OnInit{
     this.fetchTeams();
    }
 
+   ngOnDestroy(): void {
+     if (this.teamScoresStatsService){
+      this.sub?.unsubscribe();
+     }
+   }
+
 
   fetchTeams(){
-    this.teamScoresStatsService.getTeams(this.conferenceName).subscribe(data =>{
-      this.teamsInfo = data;
-      this.mapTeams();
+    this.sub = this.teamScoresStatsService.getTeams(this.conferenceName).subscribe(data =>{
+      this.mapTeams(data);
     },
     err => {
       console.log(err);
     });
   }
 
-  mapTeams(){
-    var length = this.teamsInfo.length < 10 ? this.teamsInfo.length : 10
-    for(let team of this.teamsInfo.slice(0, length)){
-      this.mappedTeams.push(
+  mapTeams(teamsInfo: Array<any>){
+    var length = teamsInfo.length < 10 ? teamsInfo.length : 10
+    for(let team of teamsInfo.slice(0, length)){
+      this.teams.push(
         {
           name: team['school'],
           logo: team['logos'][0]

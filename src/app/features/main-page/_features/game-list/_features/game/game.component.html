@@ -1,0 +1,7 @@
+<div class="game">
+    <span [ngStyle]="{'font-weight': game.scoreA > game.scoreB ? 700 : 400}">{{game.teamA}}</span>
+    <span [ngStyle]="{'font-weight': game.scoreA > game.scoreB ? 700 : 400}">{{game.scoreA}}</span>
+    <span class="versus">-</span>
+    <span [ngStyle]="{'font-weight': game.scoreB > game.scoreA ? 700 : 400}">{{game.scoreB}}</span>
+    <span [ngStyle]="{'font-weight': game.scoreB > game.scoreA ? 700 : 400}">{{game.teamB}}</span>
+</div>

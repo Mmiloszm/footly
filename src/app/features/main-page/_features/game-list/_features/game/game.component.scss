@@ -1,0 +1,11 @@
+@import '../../../../../../../styles/index.scss';
+
+.game{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr 3fr;
+    padding: 10px 0;
+
+    .versus{
+        font-weight: 900;
+    }
+}
