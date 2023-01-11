@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Conference } from 'src/app/core/models/conference.model';
-import { ConferenceService } from 'src/app/core/services/conference.service';
+import { ConferenceService } from 'src/app/core/services/conferences/conference.service';
+import { TeamSelectionService } from 'src/app/core/services/modals/team-selection.service';
+
 
 @Component({
   selector: 'app-conference-list',
@@ -11,7 +13,9 @@ export class ConferenceListComponent{
 
   selectedConference: string = '';
   conferences: Array<Conference> = [];
-  constructor(private conferenceService: ConferenceService) { 
+
+  constructor(private conferenceService: ConferenceService,
+    public teamSelectionService: TeamSelectionService) { 
     this.assignConferences();
   }
 
@@ -21,6 +25,6 @@ export class ConferenceListComponent{
 
   saveSelectedConference(name: string){
     this.selectedConference = name;
-    console.log(this.selectedConference);
+    this.teamSelectionService.showDialog = true;
   }
 }

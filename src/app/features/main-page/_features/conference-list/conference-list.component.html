@@ -1,4 +1,5 @@
 <section class="wrapper__conferences">
+    <app-team-selection *ngIf="teamSelectionService.showDialog" [conferenceName]="selectedConference"></app-team-selection>
     <h1>Select a conference:</h1>
     <div class="conferences__list">
         <ng-container *ngFor="let league of conferences">

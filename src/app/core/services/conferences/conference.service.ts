@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Conference } from '../models/conference.model';
+import { Conference } from '../../models/conference.model';
 
 @Injectable({
   providedIn: 'root'
