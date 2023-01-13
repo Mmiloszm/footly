@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
+import { NavButtonModule } from './_features/nav-button/nav-button.module';
 
 
 
@@ -10,7 +11,8 @@ import { NavbarComponent } from './navbar.component';
   ],
   exports: [NavbarComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    NavButtonModule
   ]
 })
 export class NavbarModule { }

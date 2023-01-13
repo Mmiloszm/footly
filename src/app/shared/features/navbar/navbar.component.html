@@ -3,12 +3,12 @@
     <img src="../../../../assets/logo.png" />
   </section>
   <ul class="left-buttons">
-    <li><a href="#">About</a></li>
-    <li><a href="#">Scores</a></li>
-    <li><a href="#">Contact</a></li>
+    <app-nav-button [name]="'About'"></app-nav-button>
+    <app-nav-button [name]="'Scores'"></app-nav-button>
+    <app-nav-button [name]="'Contact'"></app-nav-button>
   </ul>
   <ul class="right-buttons">
-    <li><a href="#">Credits</a></li>
-    <li><a class="primary-login-button" href="#">Login</a></li>
+    <app-nav-button [name]="'Credits'"></app-nav-button>
+    <app-nav-button [buttonClass]="'primary-login-button'" [name]="'Login'"></app-nav-button>
   </ul>
 </nav>

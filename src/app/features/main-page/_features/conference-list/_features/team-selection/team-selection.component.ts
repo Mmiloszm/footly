@@ -1,7 +1,7 @@
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { firstValueFrom, Subscription } from 'rxjs';
+import {Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {Subscription } from 'rxjs';
 import { Team } from 'src/app/core/models/team.model';
-import { TeamsScoresStatsService } from '../../../../../../core/services/api/teams-scores-stats.service'
+import { TeamsService } from '../../../../../../core/services/api/teams/teams.service'
 
 @Component({
   selector: 'app-team-selection',
@@ -15,7 +15,7 @@ export class TeamSelectionComponent implements OnInit, OnDestroy{
   public teams: Array<Team> = [];
   sub: Subscription | undefined;
 
-  constructor(private teamScoresStatsService: TeamsScoresStatsService) {
+  constructor(private teamService: TeamsService) {
    }
 
    ngOnInit(): void {
@@ -23,14 +23,14 @@ export class TeamSelectionComponent implements OnInit, OnDestroy{
    }
 
    ngOnDestroy(): void {
-     if (this.teamScoresStatsService){
+     if (this.teamService){
       this.sub?.unsubscribe();
      }
    }
 
 
   fetchTeams(){
-    this.sub = this.teamScoresStatsService.getTeams(this.conferenceName).subscribe(data =>{
+    this.sub = this.teamService.getTeams(this.conferenceName).subscribe(data =>{
       this.mapTeams(data);
     },
     err => {

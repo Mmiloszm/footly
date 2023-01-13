@@ -4,7 +4,7 @@ import { Conference } from '../../models/conference.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ConferenceService {
+export class SetupConferencesService {
 
   constructor() { }
 

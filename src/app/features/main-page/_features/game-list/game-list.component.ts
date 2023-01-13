@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Game } from 'src/app/core/models/game.model';
-import { TeamsScoresStatsService } from 'src/app/core/services/api/teams-scores-stats.service';
+import { GamesService } from 'src/app/core/services/api/games/games.service';
 import { ShareSelectedTeamService } from 'src/app/core/services/games/share-selected-team.service';
 
 @Component({
@@ -12,11 +11,10 @@ import { ShareSelectedTeamService } from 'src/app/core/services/games/share-sele
 export class GameListComponent {
   games: Array<Game> = [];
   teamName: string = '';
-  sub: Subscription | undefined;
 
   constructor(
     private shareSelectedTeamService: ShareSelectedTeamService,
-    private teamsScoresStatsService: TeamsScoresStatsService
+    private gamesService: GamesService
   ) {}
 
   team = this.shareSelectedTeamService.sharedTeam$.subscribe((name) => {
@@ -26,7 +24,7 @@ export class GameListComponent {
 
   fetchGames(name: string) {
     if (name) {
-      this.sub = this.teamsScoresStatsService
+       this.gamesService
         .getGames(name)
         .subscribe((data) => {
           this.mapGames(data);

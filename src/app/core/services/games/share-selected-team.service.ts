@@ -10,8 +10,6 @@ export class ShareSelectedTeamService {
 
   private teamSource = new BehaviorSubject("");
 
-  // sharedTeam = this.teamSource.asObservable();
-
   sharedTeam$: Observable<string> = this.teamSource;
 
   setTeam(name: string){
