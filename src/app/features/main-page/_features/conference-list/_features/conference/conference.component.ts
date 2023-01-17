@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input,Output } from '@angular/core';
-import { Conference } from 'src/app/core/models/conference.model';
+import { Conference } from 'src/app/core/models/conferences/conference.model';
 
 @Component({
   selector: 'app-conference',

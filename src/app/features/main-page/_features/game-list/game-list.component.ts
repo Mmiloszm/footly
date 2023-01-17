@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from 'src/app/core/models/game.model';
+import { Game } from 'src/app/core/models/games/game.model';
 import { GamesService } from 'src/app/core/services/api/games/games.service';
 import { ShareSelectedTeamService } from 'src/app/core/services/games/share-selected-team.service';
 
@@ -10,7 +10,7 @@ import { ShareSelectedTeamService } from 'src/app/core/services/games/share-sele
 })
 export class GameListComponent {
   games: Array<Game> = [];
-  teamName: string = '';
+  teamName: string | undefined;
 
   constructor(
     private shareSelectedTeamService: ShareSelectedTeamService,
@@ -27,20 +27,9 @@ export class GameListComponent {
        this.gamesService
         .getGames(name)
         .subscribe((data) => {
-          this.mapGames(data);
+          this.games = data;
         });
     }
   }
 
-  mapGames(gamesInfo: Array<any>) {
-    this.games = [];
-    for (let game of gamesInfo) {
-      this.games.push({
-        teamA: game['home_team'],
-        scoreA: game['home_points'],
-        scoreB: game['away_points'],
-        teamB: game['away_team'],
-      });
-    }
-  }
 }

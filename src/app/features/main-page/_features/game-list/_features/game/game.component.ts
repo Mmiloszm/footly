@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Game } from 'src/app/core/models/game.model';
+import { Game } from 'src/app/core/models/games/game.model';
 
 @Component({
   selector: 'app-game',
@@ -10,10 +10,5 @@ export class GameComponent{
 
   constructor() { }
 
-  @Input() game: Game = {
-    teamA: '',
-    scoreA: '',
-    scoreB: '',
-    teamB: ''
-  }
+  @Input() game: Game | undefined;
 }

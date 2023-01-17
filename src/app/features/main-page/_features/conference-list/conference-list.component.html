@@ -1,9 +1,19 @@
 <section class="wrapper__conferences">
-    <app-team-selection *ngIf="teamSelectionService.showDialog" [conferenceName]="selectedConference"></app-team-selection>
-    <h1>Select a conference:</h1>
-    <div class="conferences__list">
-        <ng-container *ngFor="let league of conferences">
-            <app-conference [conference]="league" (selectedConference)="saveSelectedConference($event)"></app-conference>
-        </ng-container>
-    </div>
+  <app-team-selection
+    *ngIf="selectedConference"
+    [conferenceName]="selectedConference"
+    (close)="this.selectedConference = ''"
+  ></app-team-selection>
+  <h1>Select a conference:</h1>
+  <div class="conferences__list">
+    <ng-container *ngFor="let league of conferences | keyvalue">
+      <app-conference
+        [conference]="{
+          shortcut : league.key,
+          logo : league.value
+        }"
+        (selectedConference)="saveSelectedConference($event)"
+      ></app-conference>
+    </ng-container>
+  </div>
 </section>

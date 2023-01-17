@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Conference } from 'src/app/core/models/conference.model';
-import { SetupConferencesService } from 'src/app/core/services/conferences/setup-conferences.service';
-import { TeamSelectionService } from 'src/app/core/services/modals/team-selection.service';
+import { Component, OnInit} from '@angular/core';
+import { conferencesMap } from 'src/app/core/constants/conferences/conference-map';
+
 
 
 @Component({
@@ -9,22 +8,21 @@ import { TeamSelectionService } from 'src/app/core/services/modals/team-selectio
   templateUrl: './conference-list.component.html',
   styleUrls: ['./conference-list.component.scss']
 })
-export class ConferenceListComponent{
+export class ConferenceListComponent implements OnInit{
 
-  selectedConference: string = '';
-  conferences: Array<Conference> = [];
 
-  constructor(private setupConferencesService: SetupConferencesService,
-    public teamSelectionService: TeamSelectionService) { 
+  selectedConference: string | undefined;
+  conferences: Map<string,string> = new Map();
+
+  ngOnInit(): void {
     this.assignConferences();
   }
 
   assignConferences(){
-    this.conferences = this.setupConferencesService.getConferences();
+    this.conferences = conferencesMap;
   }
 
   saveSelectedConference(name: string){
     this.selectedConference = name;
-    this.teamSelectionService.showDialog = true;
   }
 }

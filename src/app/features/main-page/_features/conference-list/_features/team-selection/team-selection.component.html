@@ -1,11 +1,15 @@
-<div class="modal__wrapper">
-  <div class="modal__container">
-    <div class="modal_teamlist">
-      <h2>Choose a team</h2>
-      <ng-container *ngFor="let team of teams">
-        <app-team [team]="team"></app-team>
-      </ng-container>
-      <app-close-dialog-button></app-close-dialog-button>
+<dialog class="team__dialog" #leDialog (keydown.esc)="onClose()">
+  <div class="modal__wrapper">
+    <div class="modal__container">
+      <div class="modal_teamlist">
+        <h2>Choose a team</h2>
+        <ng-container *ngFor="let team of teams">
+          <app-team (click)="onClose()" [team]="team"></app-team>
+        </ng-container>
+        <form method="dialog">
+          <button (click)="onClose()">Close</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</dialog>
