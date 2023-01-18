@@ -1,7 +1,8 @@
-<div class="game" *ngIf="game">
-    <span [ngStyle]="{'font-weight': game['home_points'] > game['away_points'] ? 700 : 400}">{{game['home_team']}}</span>
-    <span [ngStyle]="{'font-weight': game['home_points'] > game['away_points'] ? 700 : 400}">{{game['home_points']}}</span>
+<div class="game" *ngIf="game" (click)="this.showModal = true">
+    <span [ngStyle]="{'font-weight': game.teams[0].points > game.teams[1].points ? 700 : 400}">{{game.teams[0].school}}</span>
+    <span [ngStyle]="{'font-weight': game.teams[0].points > game.teams[1].points ? 700 : 400}">{{game.teams[0].points}}</span>
     <span class="versus">-</span>
-    <span [ngStyle]="{'font-weight': game['away_points'] > game['home_points'] ? 700 : 400}">{{game['away_points']}}</span>
-    <span [ngStyle]="{'font-weight': game['away_points']> game['home_points'] ? 700 : 400}">{{game['away_team']}}</span>
+    <span [ngStyle]="{'font-weight': game.teams[1].points > game.teams[0].points ? 700 : 400}">{{game.teams[1].points}}</span>
+    <span [ngStyle]="{'font-weight': game.teams[1].points> game.teams[0].points ? 700 : 400}">{{game.teams[1].school}}</span>
 </div>
+<app-statistics-preview *ngIf="showModal" [game]="game" (close)="this.showModal = $event"></app-statistics-preview>

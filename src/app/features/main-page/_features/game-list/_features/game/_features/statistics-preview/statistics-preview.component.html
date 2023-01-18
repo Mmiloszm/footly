@@ -1,0 +1,28 @@
+<dialog class="team__dialog" #statsDialog>
+  <div class="modal__container">
+    <form method="dialog">
+      <img
+        src="../../../../../../../../../assets/close_fill.svg"
+        alt="close"
+        (click)="onClose()"
+      />
+    </form>
+    <div class="modal__stats" *ngIf="game" appSetRows [statsLength]="teamAStats.length">
+      <span>{{ game.teams[0].school }}</span>
+      <span>{{ game.teams[0].points }}</span>
+      <span *ngFor="let stat of teamAStats">
+        {{ stat.stat }}
+      </span>
+      <span class="stat">Team</span>
+      <span class="stat">Points</span>
+      <span class="stat" *ngFor="let category of teamAStats">
+        {{ category.category }}
+      </span>
+      <span>{{ game.teams[1].school }}</span>
+      <span>{{ game.teams[1].points }}</span>
+      <span *ngFor="let stat of teamBStats">
+        {{ stat.stat }}
+      </span>
+    </div>
+  </div>
+</dialog>

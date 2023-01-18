@@ -25,6 +25,11 @@
         .game__wrapper:nth-child(even){
             background-color: $soft-blue;
         }
+
+        .game__wrapper:hover{
+            background-color: $baby-blue;
+            cursor: pointer;
+        }
     }
 
 }

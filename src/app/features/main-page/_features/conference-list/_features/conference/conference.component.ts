@@ -8,10 +8,7 @@ import { Conference } from 'src/app/core/models/conferences/conference.model';
 })
 export class ConferenceComponent{
 
-  @Input() conference: Conference = {
-    shortcut: '',
-    logo: ''
-  };
+  @Input() conference!: Conference;
 
   @Output() selectedConference = new EventEmitter<string>();
 

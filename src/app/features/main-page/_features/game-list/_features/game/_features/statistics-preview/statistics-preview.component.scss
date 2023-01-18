@@ -1,0 +1,51 @@
+@import '../../../../../../../../../styles/index.scss';
+
+.team__dialog {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor:default;
+  
+    .modal__container {
+      overflow-y: auto !important;
+      width: 20%;
+      height: 420px;
+      border-radius: 5px;
+      background: white;
+      z-index: 2;
+
+      img{
+        display: block;
+        float: right;
+        margin: 10px 10px 0 0 ;
+        cursor: pointer;
+      }
+
+      .modal__stats{
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 2fr 1fr 2fr;
+        row-gap: 15px;
+        margin: 50px 0 20px 0;
+        span {
+          color: black;
+          font-size: 0.8rem;
+        }
+
+        .stat{
+          font-weight: 700;
+        }
+      }
+
+      
+  
+    
+  }}
+  

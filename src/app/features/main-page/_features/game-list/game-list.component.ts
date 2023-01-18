@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from 'src/app/core/models/games/game.model';
+import { GameStatistics } from 'src/app/core/models/games-statistics/game-statistics.model';
 import { GamesService } from 'src/app/core/services/api/games/games.service';
 import { ShareSelectedTeamService } from 'src/app/core/services/games/share-selected-team.service';
 
@@ -9,7 +9,7 @@ import { ShareSelectedTeamService } from 'src/app/core/services/games/share-sele
   styleUrls: ['./game-list.component.scss'],
 })
 export class GameListComponent {
-  games: Array<Game> = [];
+  games: Array<GameStatistics> = [];
   teamName: string | undefined;
 
   constructor(

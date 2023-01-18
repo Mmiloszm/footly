@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Game } from 'src/app/core/models/games/game.model';
+import { Component, Input, ViewChild, ElementRef} from '@angular/core';
+import { GameStatistics } from 'src/app/core/models/games-statistics/game-statistics.model';
+
 
 @Component({
   selector: 'app-game',
@@ -8,7 +9,8 @@ import { Game } from 'src/app/core/models/games/game.model';
 })
 export class GameComponent{
 
-  constructor() { }
+  @Input() game!: GameStatistics;
 
-  @Input() game: Game | undefined;
+  showModal = false;
+
 }

@@ -5,6 +5,7 @@ import { NavbarModule } from 'src/app/shared/features/navbar/navbar.module';
 import { HeroModule } from './_features/hero/hero.module';
 import { ConferenceListModule } from './_features/conference-list/conference-list.module';
 import { GameListModule } from './_features/game-list/game-list.module';
+import { FooterModule } from 'src/app/shared/features/footer/footer.module';
 
 
 
@@ -14,6 +15,7 @@ import { GameListModule } from './_features/game-list/game-list.module';
   imports: [
     CommonModule,
     NavbarModule,
+    FooterModule,
     HeroModule,
     ConferenceListModule,
     GameListModule
