@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const app = express();
 const cors = require("cors");
 const token =
-  "Bearer GNkQD13dhbzgeCEDWSowTEr1mjJ3csse0Ty2Af4CwwheNzxNM7qnAcYUSonq1Z7M";
+  /*your token*/;
 
 const headers = {
   Authorization: token,
